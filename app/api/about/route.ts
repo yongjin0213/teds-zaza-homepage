@@ -7,11 +7,11 @@ type AboutPayload = {
 };
 
 export async function GET() {
-  const rows = await sql<{ id: number; content: string; position: number }[]>`
+  const rows = (await sql`
     select id, content, position
     from about_paragraphs
     order by position asc, id asc
-  `;
+  `) as { id: number; content: string; position: number }[];
   return NextResponse.json(rows);
 }
 
