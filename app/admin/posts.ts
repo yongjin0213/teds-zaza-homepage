@@ -29,11 +29,11 @@ const normalizeList = (value: unknown): string[] => {
 };
 
 export const getAdminPosts = async (): Promise<Post[]> => {
-  const rows = await sql<DbRecipe[]>`
+  const rows = (await sql`
     select id, title, summary, image, tag, video_image, story, ingredients, steps
     from recipes
     order by created_at desc
-  `;
+  `) as DbRecipe[];
 
   return rows.map((row) => {
     const story = normalizeList(row.story);
