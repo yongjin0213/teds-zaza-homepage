@@ -14,14 +14,14 @@ export async function PUT(request: Request, { params }: RouteParams) {
   const { id } = await params;
   const payload = (await request.json()) as AboutUpdatePayload;
 
-  const rows = await sql<{ id: number }[]>`
+  const rows = (await sql`
     update about_paragraphs
     set
       content = coalesce(${payload.content}, content),
       position = coalesce(${payload.position}, position)
     where id = ${Number(id)}
     returning id
-  `;
+  `) as { id: number }[];
 
   if (!rows.length) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
