@@ -10,6 +10,8 @@ if (!bucketName || !publicBaseUrl) {
   throw new Error("AWS_S3_BUCKET or AWS_S3_PUBLIC_URL is not set");
 }
 
+const normalizedPublicBaseUrl = publicBaseUrl.replace(/\/$/, "");
+
 type UploadRequest = {
   fileName: string;
   contentType: string;
@@ -38,7 +40,7 @@ export async function POST(request: Request) {
   });
 
   const uploadUrl = await getSignedUrl(s3Client, command, { expiresIn: 60 });
-  const publicUrl = `${publicBaseUrl.replace(/\/$/, "")}/${key}`;
+  const publicUrl = `${normalizedPublicBaseUrl}/${key}`;
 
   return NextResponse.json({ uploadUrl, publicUrl });
 }

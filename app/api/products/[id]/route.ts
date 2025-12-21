@@ -23,7 +23,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
   const { id } = await params;
   const payload = (await request.json()) as ProductUpdatePayload;
 
-  const rows = await sql<{ id: string }[]>`
+  const rows = (await sql`
     update products
     set
       name = coalesce(${payload.name}, name),
@@ -33,7 +33,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
       badge = coalesce(${payload.badge}, badge)
     where id = ${id}
     returning id
-  `;
+  `) as { id: string }[];
 
   if (!rows.length) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });

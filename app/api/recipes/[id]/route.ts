@@ -38,7 +38,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
   const { id } = await params;
   const payload = (await request.json()) as RecipeUpdatePayload;
 
-  const rows = await sql<{ id: string }[]>`
+  const rows = (await sql`
     update recipes
     set
       title = coalesce(${payload.title}, title),
@@ -51,7 +51,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
       steps = coalesce(${payload.steps ? JSON.stringify(payload.steps) : null}::jsonb, steps)
     where id = ${id}
     returning id
-  `;
+  `) as { id: string }[];
 
   if (!rows.length) {
     if (!payload.title || !payload.summary || !payload.image || !payload.tag) {

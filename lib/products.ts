@@ -28,10 +28,10 @@ const mapProduct = (row: DbProduct): Product => ({
 });
 
 export const getProducts = async (): Promise<Product[]> => {
-  const rows = await sql<DbProduct[]>`
+  const rows = (await sql`
     select id, name, price, image, link, badge
     from products
     order by created_at desc
-  `;
+  `) as DbProduct[];
   return rows.map(mapProduct);
 };

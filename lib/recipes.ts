@@ -52,27 +52,27 @@ const mapRecipe = (row: DbRecipe): Recipe => ({
 });
 
 export const getRecipes = async (): Promise<Recipe[]> => {
-  const rows = await sql<DbRecipe[]>`
+  const rows = (await sql`
     select id, title, image, tag, summary, video_image, story, ingredients, steps
     from recipes
     order by created_at desc
-  `;
+  `) as DbRecipe[];
   return rows.map(mapRecipe);
 };
 
 export const getRecipeById = async (id: string): Promise<Recipe | null> => {
-  const rows = await sql<DbRecipe[]>`
+  const rows = (await sql`
     select id, title, image, tag, summary, video_image, story, ingredients, steps
     from recipes
     where id = ${id}
     limit 1
-  `;
+  `) as DbRecipe[];
   return rows.length ? mapRecipe(rows[0]) : null;
 };
 
 export const getRecipeIds = async (): Promise<string[]> => {
-  const rows = await sql<{ id: string }[]>`
+  const rows = (await sql`
     select id from recipes order by created_at desc
-  `;
+  `) as { id: string }[];
   return rows.map((row) => row.id);
 };
