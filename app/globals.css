@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f5e6dd;
+  --cream-deep: #f0d6cc;
+  --paper: #f9efe9;
+  --tomato: #d3322a;
+  --tomato-dark: #b21f1a;
+  --ink: #311414;
+  --shadow: rgba(49, 20, 20, 0.18);
+}
+
+@theme inline {
+  --font-sans: var(--font-body);
+}
+
+body {
+  color: var(--ink);
+  background: radial-gradient(circle at top, #f6e9e2 0%, #f3d9cf 55%, #f6e9e2 100%);
+  font-family: var(--font-body), "Trebuchet MS", sans-serif;
+}
+
+.site-shell {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+.site-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(transparent 23px, rgba(211, 50, 42, 0.08) 24px),
+    linear-gradient(90deg, transparent 23px, rgba(211, 50, 42, 0.08) 24px);
+  background-size: 24px 24px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(249, 239, 233, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 4px solid var(--tomato);
+  box-shadow: 0 12px 30px var(--shadow);
+}
+
+.nav-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 7vw;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-logo {
+  font-family: var(--font-display), "Impact", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 0.15rem;
+  color: var(--tomato-dark);
+  text-decoration: none;
+}
+
+.nav-link {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.nav-link:hover {
+  background: rgba(211, 50, 42, 0.15);
+}
+
+.nav-right {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--tomato);
+  color: #fff;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.nav-icon:hover {
+  transform: translateY(-2px);
+  background: var(--tomato-dark);
+}
+
+.nav-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.site-main {
+  padding: 48px 7vw 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-display), "Impact", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--tomato-dark);
+}
+
+.card {
+  background: var(--paper);
+  border: 2px solid rgba(178, 31, 26, 0.25);
+  box-shadow: 0 18px 24px rgba(49, 20, 20, 0.15);
+  border-radius: 24px;
+}
+
+.reveal {
+  animation: floatIn 0.7s ease both;
+}
+
+.reveal-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  animation-delay: 0.4s;
+}
+
+.reveal-delay-5 {
+  animation-delay: 0.5s;
+}
+
+.reveal-delay-6 {
+  animation-delay: 0.6s;
+}
+
+.checker-band {
+  background-image: linear-gradient(45deg, var(--tomato) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--tomato) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--tomato) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--tomato) 75%);
+  background-size: 18px 18px;
+  background-position: 0 0, 0 9px, 9px -9px, -9px 0;
+  height: 22px;
+  border-radius: 999px;
+}
+
+.site-footer {
+  padding: 28px 7vw 48px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  color: var(--tomato-dark);
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-shell {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

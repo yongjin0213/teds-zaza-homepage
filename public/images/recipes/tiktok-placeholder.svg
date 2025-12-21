@@ -1,0 +1,7 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="28" fill="#F9EFE9"/>
+  <rect x="32" y="32" width="576" height="296" rx="22" fill="#F1D6CC" stroke="#D3322A" stroke-width="6"/>
+  <circle cx="320" cy="180" r="54" fill="#D3322A"/>
+  <path d="M310 155v50l40-25-40-25z" fill="#F9EFE9"/>
+  <text x="320" y="300" text-anchor="middle" font-family="Arial" font-size="18" fill="#B21F1A">TikTok Embed Placeholder</text>
+</svg>

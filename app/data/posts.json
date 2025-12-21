@@ -1,0 +1,32 @@
+[
+  {
+    "id": "dough-rise",
+    "title": "The 24-Hour Dough Rise",
+    "description": "A slow-rise base that stays chewy and crisp.",
+    "inspiration": "Ted started cold-fermenting dough to chase the airy crust from his favorite neighborhood slice shop.",
+    "ingredients": "00 flour, ice water, active dry yeast, sea salt, olive oil",
+    "steps": "Mix and knead the dough until smooth.\nCold ferment for 24 hours.\nBring to room temp before stretching.",
+    "thumbnail": "/images/recipes/margherita-cloud.svg",
+    "videoEmbed": "https://www.tiktok.com"
+  },
+  {
+    "id": "sauce-bright",
+    "title": "Bright Tomato Sauce",
+    "description": "A five-minute blitz for extra punch.",
+    "inspiration": "The goal was to keep the sauce fresh and raw so it pops against the hot cheese.",
+    "ingredients": "San Marzano tomatoes, garlic, olive oil, basil, sea salt",
+    "steps": "Blitz tomatoes and garlic until chunky.\nStir in basil, oil, and salt.\nTaste and adjust before using.",
+    "thumbnail": "/images/recipes/pepperoni-drip.svg",
+    "videoEmbed": "https://www.tiktok.com"
+  },
+  {
+    "id": "cheese-stack",
+    "title": "Cheese Stack Rules",
+    "description": "Layering mozzarella for max pull.",
+    "inspiration": "Ted layers cheese to create a stretchy top and a gooey middle without soggy crust.",
+    "ingredients": "Low-moisture mozzarella, fresh mozzarella, provolone, parmesan",
+    "steps": "Start with low-moisture mozz for melt.\nAdd fresh mozz in torn chunks.\nFinish with provolone and parmesan.",
+    "thumbnail": "/images/recipes/four-cheese.svg",
+    "videoEmbed": "https://www.tiktok.com"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "stone-slab",
+    "name": "Crisp Edge Pizza Stone",
+    "price": "$42.00",
+    "image": "/images/products/pizza-stone.svg",
+    "link": "https://www.amazon.com",
+    "badge": "Ted Approved"
+  },
+  {
+    "id": "steel-pan",
+    "name": "Puff Crust Steel Pan",
+    "price": "$58.00",
+    "image": "/images/products/steel-pan.svg",
+    "link": "https://www.amazon.com",
+    "badge": "Most Wanted"
+  },
+  {
+    "id": "sauce-ladle",
+    "name": "Sauce Swirl Ladle",
+    "price": "$14.00",
+    "image": "/images/products/ladle.svg",
+    "link": "https://www.amazon.com",
+    "badge": "Budget Pick"
+  },
+  {
+    "id": "cheese-shredder",
+    "name": "Mountain Cheese Shredder",
+    "price": "$26.00",
+    "image": "/images/products/shredder.svg",
+    "link": "https://www.amazon.com",
+    "badge": "Fan Favorite"
+  }
+]
