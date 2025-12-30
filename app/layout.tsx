@@ -35,7 +35,7 @@ export default function RootLayout({
             <nav className="nav-shell">
               <div className="nav-left">
                 <Link className="nav-logo" href="/">
-                  Teds Zaza
+                  Ted's Zaza
                 </Link>
                 <Link className="nav-link" href="/recipes">
                   Recipes

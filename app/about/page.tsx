@@ -7,7 +7,7 @@ export default async function AboutPage() {
     <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
       <section className="grid gap-4 reveal">
         <div className="checker-band w-28" />
-        <h1 className="section-title">About Tedszaza</h1>
+        <h1 className="section-title">About Ted's Zaza</h1>
         {paragraphs.length ? (
           paragraphs.map((paragraph) => (
             <p key={paragraph.id} className="text-lg leading-8">
