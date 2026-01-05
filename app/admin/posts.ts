@@ -7,7 +7,7 @@ type DbRecipe = {
   summary: string;
   image: string;
   tag: string;
-  video_image: string;
+  vidid: string;
   story: unknown;
   ingredients: unknown;
   steps: unknown;
@@ -48,7 +48,7 @@ export const getAdminPosts = async (): Promise<Post[]> => {
       ingredients: ingredients.join(", "),
       steps: steps.join("\n"),
       thumbnail: row.image,
-      videoEmbed: row.video_image,
+      vidid: row.vidid,
       tag: row.tag,
     } satisfies Post;
   });

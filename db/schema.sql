@@ -4,7 +4,7 @@ create table if not exists recipes (
   image text not null,
   tag text not null,
   summary text not null,
-  video_image text not null,
+  vidid text not null,
   story jsonb not null,
   ingredients jsonb not null,
   steps jsonb not null,

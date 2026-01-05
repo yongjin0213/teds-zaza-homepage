@@ -41,6 +41,5 @@ export async function POST(request: Request) {
 
   const uploadUrl = await getSignedUrl(s3Client, command, { expiresIn: 60 });
   const publicUrl = `${normalizedPublicBaseUrl}/${key}`;
-
   return NextResponse.json({ uploadUrl, publicUrl });
 }

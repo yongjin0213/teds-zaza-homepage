@@ -80,8 +80,8 @@ export default function PostForm({
       <input
         className="rounded-full border-2 border-[color:var(--tomato)] bg-white/80 px-4 py-2 text-sm"
         placeholder="TikTok embed URL"
-        value={post.videoEmbed}
-        onChange={(event) => onChange("videoEmbed", event.target.value)}
+        value={post.vidid ?? ""}
+        onChange={(event) => onChange("vidid", event.target.value)}
       />
       <div className="flex gap-2">
         <button className="rounded-full bg-[color:var(--tomato)] px-5 py-2 text-xs font-semibold uppercase tracking-widest text-white">

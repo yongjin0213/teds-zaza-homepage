@@ -28,7 +28,7 @@ type RecipeUpdatePayload = {
   summary?: string;
   image?: string;
   tag?: string;
-  videoImage?: string;
+  videoEmbed?: string;
   story?: string[];
   ingredients?: string[];
   steps?: string[];
@@ -45,7 +45,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
       summary = coalesce(${payload.summary}, summary),
       image = coalesce(${payload.image}, image),
       tag = coalesce(${payload.tag}, tag),
-      video_image = coalesce(${payload.videoImage}, video_image),
+      vidid = coalesce(${payload.videoEmbed}, vidid),
       story = coalesce(${payload.story ? JSON.stringify(payload.story) : null}::jsonb, story),
       ingredients = coalesce(${payload.ingredients ? JSON.stringify(payload.ingredients) : null}::jsonb, ingredients),
       steps = coalesce(${payload.steps ? JSON.stringify(payload.steps) : null}::jsonb, steps)
@@ -62,14 +62,14 @@ export async function PUT(request: Request, { params }: RouteParams) {
     }
 
     await sql`
-      insert into recipes (id, title, image, tag, summary, video_image, story, ingredients, steps)
+      insert into recipes (id, title, image, tag, summary, vidid, story, ingredients, steps)
       values (
         ${id},
         ${payload.title},
         ${payload.image},
         ${payload.tag},
         ${payload.summary},
-        ${payload.videoImage ?? "/images/recipes/tiktok-placeholder.svg"},
+        ${payload.videoEmbed ?? "/images/recipes/tiktok-placeholder.svg"},
         ${JSON.stringify(payload.story ?? [])}::jsonb,
         ${JSON.stringify(payload.ingredients ?? [])}::jsonb,
         ${JSON.stringify(payload.steps ?? [])}::jsonb

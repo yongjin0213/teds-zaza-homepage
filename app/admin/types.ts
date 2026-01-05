@@ -6,7 +6,7 @@ export type Post = {
   ingredients: string;
   steps: string;
   thumbnail: string;
-  videoEmbed: string;
+  vidid: string;
   tag: string;
 };
 

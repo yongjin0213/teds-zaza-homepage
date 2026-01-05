@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import LiteTikTok from "@/app/recipes/LiteTiktok";
 import { notFound } from "next/navigation";
 import { getRecipeById, getRecipeIds } from "@/lib/recipes";
 
@@ -17,7 +18,6 @@ type RecipePageProps = {
 export default async function RecipePage({ params }: RecipePageProps) {
   const { slug } = await params;
   const recipe = await getRecipeById(slug);
-
   if (!recipe) {
     notFound();
   }
@@ -34,14 +34,8 @@ export default async function RecipePage({ params }: RecipePageProps) {
       </section>
 
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="card p-6 reveal reveal-delay-1">
-          <Image
-            src={recipe.videoImage}
-            alt={`TikTok embed for ${recipe.title}`}
-            width={640}
-            height={360}
-            className="h-auto w-full"
-          />
+        <div className="card p-6 reveal reveal-delay-1 flex justify-center items-start">
+          <LiteTikTok vidid={recipe.vidid}/>
         </div>
         <div className="grid gap-6 reveal reveal-delay-2">
           <div className="card p-6">

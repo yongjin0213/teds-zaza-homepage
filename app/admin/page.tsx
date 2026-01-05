@@ -17,7 +17,7 @@ type RecipeApiItem = {
   summary: string;
   image: string;
   tag: string;
-  videoImage: string;
+  vidid: string;
   story: string[];
   ingredients: string[];
   steps: string[];
@@ -57,7 +57,7 @@ export default function AdminPage() {
       summary: newPost.description,
       image: newPost.thumbnail,
       tag: newPost.tag.trim() || "Admin",
-      videoImage: newPost.videoEmbed || "/images/recipes/tiktok-placeholder.svg",
+      vidId: newPost.vidid || "/images/recipes/tiktok-placeholder.svg",
       story: newPost.inspiration ? [newPost.inspiration] : [],
       ingredients: newPost.ingredients
         ? newPost.ingredients.split(",").map((item) => item.trim()).filter(Boolean)
@@ -130,7 +130,7 @@ export default function AdminPage() {
       summary: editingPost.description,
       image: editingPost.thumbnail,
       tag: editingPost.tag.trim() || "Admin",
-      videoImage: editingPost.videoEmbed || "/images/recipes/tiktok-placeholder.svg",
+      videoEmbed: editingPost.vidid || "/images/recipes/tiktok-placeholder.svg",
       story: editingPost.inspiration ? [editingPost.inspiration] : [],
       ingredients: editingPost.ingredients
         ? editingPost.ingredients.split(",").map((item) => item.trim()).filter(Boolean)
@@ -330,7 +330,7 @@ export default function AdminPage() {
           ingredients: recipe.ingredients?.join(", ") ?? "",
           steps: recipe.steps?.join("\n") ?? "",
           thumbnail: recipe.image,
-          videoEmbed: recipe.videoImage,
+          vidid: recipe.vidid,
           tag: recipe.tag,
         }))
       );
@@ -362,12 +362,12 @@ export default function AdminPage() {
         `Failed to request upload URL (${response.status}): ${message}`
       );
     }
-
+    console.log("Response was okay!")
     const { uploadUrl, publicUrl } = (await response.json()) as {
       uploadUrl: string;
       publicUrl: string;
     };
-
+    console.log(uploadUrl)
     const upload = await fetch(uploadUrl, {
       method: "PUT",
       headers: { "Content-Type": file.type || "application/octet-stream" },

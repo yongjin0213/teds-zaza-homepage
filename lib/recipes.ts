@@ -6,7 +6,7 @@ export type Recipe = {
   image: string;
   tag: string;
   summary: string;
-  videoImage: string;
+  vidid: string;
   story: string[];
   ingredients: string[];
   steps: string[];
@@ -18,7 +18,7 @@ type DbRecipe = {
   image: string;
   tag: string;
   summary: string;
-  video_image: string;
+  vidid: string;
   story: unknown;
   ingredients: unknown;
   steps: unknown;
@@ -45,7 +45,7 @@ const mapRecipe = (row: DbRecipe): Recipe => ({
   image: row.image,
   tag: row.tag,
   summary: row.summary,
-  videoImage: row.video_image,
+  vidid: row.vidid,
   story: normalizeList(row.story),
   ingredients: normalizeList(row.ingredients),
   steps: normalizeList(row.steps),
@@ -53,7 +53,7 @@ const mapRecipe = (row: DbRecipe): Recipe => ({
 
 export const getRecipes = async (): Promise<Recipe[]> => {
   const rows = (await sql`
-    select id, title, image, tag, summary, video_image, story, ingredients, steps
+    select id, title, image, tag, summary, vidid, story, ingredients, steps
     from recipes
     order by created_at desc
   `) as DbRecipe[];
@@ -62,7 +62,7 @@ export const getRecipes = async (): Promise<Recipe[]> => {
 
 export const getRecipeById = async (id: string): Promise<Recipe | null> => {
   const rows = (await sql`
-    select id, title, image, tag, summary, video_image, story, ingredients, steps
+    select id, title, image, tag, summary, vidid, story, ingredients, steps
     from recipes
     where id = ${id}
     limit 1
