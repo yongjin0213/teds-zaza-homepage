@@ -8,7 +8,7 @@ export const emptyPost: Post = {
   ingredients: "",
   steps: "",
   thumbnail: "",
-  videoEmbed: "",
+  vidid: "",
   tag: "",
 };
 
