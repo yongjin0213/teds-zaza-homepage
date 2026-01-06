@@ -4,7 +4,8 @@ import TestClick from "../Test";
 import { notFound } from "next/navigation";
 import { getRecipeById, getRecipeIds } from "@/lib/recipes";
 
-export const dynamicParams = false;
+export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const ids = await getRecipeIds();
