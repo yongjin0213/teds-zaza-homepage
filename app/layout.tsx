@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Bebas_Neue, Josefin_Sans } from "next/font/google";
 import Link from "next/link";
 import Providers from "./providers";
@@ -28,6 +29,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5921947487618627"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={`${bebasNeue.variable} ${josefinSans.variable} antialiased`}>
         <Providers>
           <div className="site-shell">
@@ -87,9 +96,22 @@ export default function RootLayout({
             </nav>
           </header>
           <main className="site-main">{children}</main>
-            <footer className="site-footer">
-              <p>Follow my TikTok for more pizza recipes</p>
-            </footer>
+          <footer className="site-footer">
+            <div className="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-4">
+              <p>© 2026 Ted's Zaza. All rights reserved.</p>
+              <div className="flex gap-6">
+                <Link href="/privacy" className="nav-link">
+                  Privacy Policy
+                </Link>
+                <Link href="/contact" className="nav-link">
+                  Contact
+                </Link>
+                <Link href="/about" className="nav-link">
+                  About
+                </Link>
+              </div>
+            </div>
+          </footer>
           </div>
         </Providers>
       </body>

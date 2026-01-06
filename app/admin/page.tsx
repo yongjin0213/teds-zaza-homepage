@@ -57,7 +57,7 @@ export default function AdminPage() {
       summary: newPost.description,
       image: newPost.thumbnail,
       tag: newPost.tag.trim() || "Admin",
-      vidId: newPost.vidid || "/images/recipes/tiktok-placeholder.svg",
+      vidid: newPost.vidid || "/images/recipes/tiktok-placeholder.svg",
       story: newPost.inspiration ? [newPost.inspiration] : [],
       ingredients: newPost.ingredients
         ? newPost.ingredients.split(",").map((item) => item.trim()).filter(Boolean)

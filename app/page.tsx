@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getRecipes } from "@/lib/recipes";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const recipes = await getRecipes();
   const featured = recipes.slice(0, 3);
