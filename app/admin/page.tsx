@@ -421,6 +421,7 @@ export default function AdminPage() {
   };
 
   if (status === "loading") {
+    console.log('in here')
     return (
       <div className="mx-auto max-w-md">
         <div className="card p-8 grid gap-6 reveal">

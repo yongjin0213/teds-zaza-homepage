@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
 
-// next.config.ts
-
 const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.tiktok.com https://*.tiktokcdn.com https://accounts.google.com;
@@ -10,11 +8,10 @@ const cspHeader = `
     font-src 'self';
     object-src 'none';
     base-uri 'self';
-    form-action 'self';
+    form-action 'self' https://accounts.google.com;
     frame-src 'self' https://www.tiktok.com https://accounts.google.com;
-    connect-src 'self' https://teds-zaza-website.s3.amazonaws.com https://teds-zaza-website.s3.us-east-1.amazonaws.com;
+    connect-src 'self' https://teds-zaza-website.s3.amazonaws.com https://teds-zaza-website.s3.us-east-1.amazonaws.com https://accounts.google.com;
     frame-ancestors 'none';
-    upgrade-insecure-requests;
 `.replace(/\n/g, "");
 
 const nextConfig: NextConfig = {
@@ -32,7 +29,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Add this headers section to handle your CSP
   async headers() {
     return [
       {
