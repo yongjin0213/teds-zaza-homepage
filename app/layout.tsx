@@ -30,12 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5921947487618627"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <script 
+          async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5921947487618627"
+          crossOrigin="anonymous" 
+        ></script>
+        <meta name="google-adsense-account" content="ca-pub-5921947487618627" />
       </head>
       <body className={`${bebasNeue.variable} ${josefinSans.variable} antialiased`}>
         <Providers>
