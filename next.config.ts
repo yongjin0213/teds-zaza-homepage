@@ -10,7 +10,7 @@ const cspHeader = `
       https://*.google.com 
       https://googleads.g.doubleclick.net 
       https://*.adtrafficquality.google
-      https://www.googletagmanager.com;
+      https://www.googletagmanager.com;g
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: 
       https://*.tiktok.com 
